@@ -150,10 +150,13 @@ WHERE director_name = 'Rajiv Chilaka';
 ### 8. List All TV Shows with More Than 5 Seasons
 
 ```sql
-SELECT *
+SELECT 
+    *,
+    SPLIT_PART(duration, ' ', 1)::INTEGER AS sessions
 FROM netflix
-WHERE type = 'TV Show'
-  AND SPLIT_PART(duration, ' ', 1)::INT > 5;
+WHERE
+    type = 'TV Show'
+    AND SPLIT_PART(duration, ' ', 1)::INTEGER > 5;
 ```
 
 **Objective:** Identify TV shows with more than 5 seasons.
@@ -267,7 +270,7 @@ This analysis provides a comprehensive view of Netflix's content and can help in
 
 
 
-## Aknowledgements - Zero Analyst
+## Acknowledgement - Zero Analyst
 
 I would like to extend my deepest gratitude to the incredible YouTuber "Zero Analyst" for his invaluable guidance and support. His tutorial on "Advanced SQL Project | Netflix Data Analysis Using SQL (Guided)" from his Portfolio Series was instrumental in helping me achieve all my outcomes. 
 
